@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <title>Games</title>
+{% endblock %}
+
+
+{% block body %}
+
+<a class="btn btn-primary m-3" href="{{ url_for('chess.load_game') }}" role="button">Back</a>
+    <div class="container">
+        {% for row in links | batch(2) %}
+            <div class="row">
+                {% for column in row %}
+                <div class="col text-center mb-3">
+                    {% set l1 = "https://lichess.org/embed/" %}
+                    {% set l2 = "?theme=auto&bg=auto" %}
+                    {% set link = l1 ~ column ~ l2 %}
+                    <iframe src={{ link }} width=350em height=375em></iframe>
+                    <br>
+                    <a class="btn btn-primary" href="{{ url_for('chess.analysis', id=column) }}" role="button">Analyze</a>
+                </div>
+            </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+{% endblock %}

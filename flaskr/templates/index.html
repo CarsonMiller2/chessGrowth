@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <title>Home</title>
+{% endblock %}
+
+
+{% block body %}
+<h1 class="text-center">Welcome to ChessGrowth!</h1>
+<div class="container">
+    <div class="row text-center">
+        <div class="col-xs-6 mt-3">
+            {% if g.user %}
+                <a class="btn btn-primary mb-4" href="{{ url_for('chess.load_game') }}" role="button">Analyze Games</a>
+            {% else %}
+                <p>To get started analyzing your games, log in or create an account.</p>
+            {% endif %}
+            <p>Feel free to analyze a few of the most famous chess games ever played below!</p>
+        </div>
+        <div class="col-xs-6">
+            <iframe width=600 height=371 src="https://lichess.org/study/embed/WtwmeX4m/2vCnpgjF"></iframe>
+        </div>
+    </div>
+</div>
+{% endblock %}

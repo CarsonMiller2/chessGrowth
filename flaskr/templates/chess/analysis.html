@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <title>Analysis</title>
+{% endblock %}
+
+
+{% block body %}
+    {% set l1 = "https://lichess.org/embed/" %}
+    {% set l2 = "?theme=auto&bg=auto" %}
+    {% set link = l1 ~ id ~ l2 %}
+    <div class="m-3">
+        <iframe src={{ link }} width=600 height=397></iframe><br>
+        <a class="btn btn-primary" href="{{ url_for('chess.load_game') }}" role="button">Load a different game</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <title>Load Game</title>
+{% endblock %}
+
+
+{% block body %}
+    <p class="text-center mt-4">Please insert the Lichess username of the player you want to evaluate:</p>
+    <form method="post" class="align-items-center mt-4">
+        <label for="username">Lichess:</label>
+        <input name="username" id="username" value="{{ request.form['username'] }}" required>
+        <input type="submit" value="Save">
+    </form>
+{% endblock %}
